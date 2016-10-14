@@ -1,13 +1,92 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script>
-      // JavaScript function definition here
-    </script> 
-  </head>
-  
-  <body>
-    <!-- Your page here (can include more script tags) -->
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap stuff -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Embedded CSS -->
+  <style>
+    .image {
+      border-radius: 10px;
+    }
+  </style>
+  <!-- Embedded JS -->
+  <script>
+    // Toggle to fade
+    $(document).ready(function(){
+      $("#button-img").click(function(){
+          $(".image").fadeToggle();
+      });
+    });
     
-  </body>
+    // Array of favorite things
+    var favoriteThings = ["1", "2", "3", "4", "5", "6", "7"];
+    document.getElementById("fav").innerHTML = favoriteThings;
+    
+    function clickToLoop() {
+      document.getElementById("fav").innerHTML = favoriteThings.pop();
+    }
+  </script>
+</head>
+
+<body>
+  
+  <div class="container">
+    <h2>ALMIGHTY BLOG SITE</h2>
+    
+    <div class="image-container">
+      <button id="button-img" class="btn btn-primary">Toggle to Fade</button><br><br>
+      <div class="row">
+        <div class="col-md-4">
+          <img class="img-responsive image" src="images/IMG_3355 2.jpg">
+        </div>
+        <div class="col-md-4">
+          <img class="img-responsive image" src="images/new logo image.jpg">
+        </div>
+        <div class="col-md-4">
+          <img class="img-responsive image" src="images/post.jpg">
+        </div>
+      </div>
+    </div>
+    
+    <div class="array-container">
+      <button id="button" class="btn btn-primary" onclick="clickToLoop()">Click here to see my favorite things!</button>
+      <span id="fav"></span>
+    </div>
+    
+    <div class="loop-container">
+      <span id="loop"></span>
+      
+      <script>
+        // For loop of favorite things
+        var thing = "";
+        var i;
+        
+        for (i = 0; i < 5; i++) {
+          thing += "This is number " + i + "<br>";
+        }
+          document.getElementById("loop").innerHTML = thing;
+        
+        function showLoop() {
+          document.getElementById("loop").innerHTML = thing.pop();
+        }
+      </script>
+    </div>
+    
+    <div class="visit-container">
+      <button id="button-site">Visit Page Now</button>
+      
+      <script>
+      // Visit Page Now
+      document.getElementById("button-site").onclick = function () {
+        location.href = "http://www.almightyny.com";
+      };
+      </script>
+    </div>
+    
+  </div>
+  
+</body>
 </html>
